@@ -11,8 +11,7 @@ RUN apt-get update && apt-get install -y git curl wget
 RUN git clone https://github.com/Aleksii/Snorter.git /opt/Snorter
 RUN chmod 755 /opt/Snorter/src/Snorter.sh
 RUN sed -i "s/sudo //g" /opt/Snorter/src/Snorter.sh
+RUN /opt/Snorter/src/Snorter.sh -o ${OINKCODE} -i ${INTERFACE}
 USER root
 WORKDIR /opt/Snorter
-CMD /opt/Snorter/src/Snorter.sh -o ${OINKCODE} -i ${INTERFACE}
-
 
