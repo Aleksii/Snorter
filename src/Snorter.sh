@@ -25,7 +25,7 @@ function update_upgrade() {
 function snort_install() {
 
 	echo -ne "\n\t${CYAN}[i] INFO:${NOCOLOR} Installing dependencies.\n\n"
-	sudo apt-get install -y --force-yes build-essential libpcap-dev libpcre3-dev libdumbnet-dev bison flex zlib1g-dev git locate vim
+	sudo apt-get install -y --force-yes build-essential libpcap-dev libpcre3-dev libdumbnet-dev bison flex zlib1g-dev git locate nano
 	
 	#Downloading DAQ and SNORT
 	cd $HOME && mkdir snort_src && cd snort_src
@@ -91,12 +91,12 @@ function snort_edit() {
 	echo -ne "\n\t${CYAN}[i] INFO:${NOCOLOR} Add your ${BOLD}HOME_NET${NOCOLOR} address [Ex: 192.168.1.0/24]"
 	echo -ne "\n\t${YELLOW}[!] WARNING:${NOCOLOR} Press ${BOLD}ENTER${NOCOLOR} to continue. "
 	read -n 1 -s
-	sudo vim /etc/snort/snort.conf -c "/ipvar HOME_NET"
+	sudo nano /etc/snort/snort.conf -c "/ipvar HOME_NET"
 
 	echo -ne "\n\t${CYAN}[i] INFO:${NOCOLOR} Add your ${BOLD}EXTERNAL_NET${NOCOLOR} address [Ex: !\$HOME_NET]"
 	echo -ne "\n\t${YELLOW}[!] WARNING:${NOCOLOR} Press ${BOLD}ENTER${NOCOLOR} to continue. "
 	read -n 1 -s
-	sudo vim /etc/snort/snort.conf -c "/ipvar EXTERNAL_NET"
+	sudo nano /etc/snort/snort.conf -c "/ipvar EXTERNAL_NET"
 
 	echo -ne "\n\t${CYAN}[i] INFO:${NOCOLOR} Adding ${BOLD}RULE_PATH${NOCOLOR} to snort.conf file"
 	sudo sed -i 's/RULE_PATH\ \.\.\//RULE_PATH\ \/etc\/snort\//g' /etc/snort/snort.conf
