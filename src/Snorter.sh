@@ -18,7 +18,7 @@ BOLD='\033[1m'
 function update_upgrade() {
 
 	echo -ne "\n\t${CYAN}[i] INFO:${NOCOLOR} Updating and Upgrading repositories...\n\n"
-	sudo apt-get update && sudo apt-get upgrade -y --force-yes
+	sudo apt-get update
 	
 }
 
