@@ -4,8 +4,8 @@ From kalilinux/kali-linux-docker:latest
 MAINTAINER Joan Bono <@joan_bono>
 
 
-ENV OINKCODE="***"
-ENV INTERFACE="eth0"
+ENV OINKCODE=***
+ENV INTERFACE=eth0
 
 RUN apt-get update && apt-get install -y git curl wget
 RUN git clone https://github.com/Aleksii/Snorter.git /opt/Snorter
